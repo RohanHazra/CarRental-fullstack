@@ -156,7 +156,7 @@ export const updateUserImage = async (req, res)=>{
         const imageFile = req.file;
 
         // Upload Image to ImageKit
-        const fileBuffer = fs.readFileSync(imageFile.path)
+       const fileBuffer = imageFile.buffer; // Access the binary data directly
         const response = await imagekit.upload({
             file: fileBuffer,
             fileName: imageFile.originalname,
