@@ -26,7 +26,7 @@ export const addCar = async (req, res)=>{
         const imageFile = req.file;
 
         // Upload Image to ImageKit
-        const fileBuffer = fs.readFileSync(imageFile.path)
+       const fileBuffer = imageFile.buffer; // Access the buffer directly
         const response = await imagekit.upload({
             file: fileBuffer,
             fileName: imageFile.originalname,
